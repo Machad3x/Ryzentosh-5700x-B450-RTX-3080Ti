@@ -8,3 +8,7 @@ usb-backup/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+wifi-kexts/
+
+nvidia-extracted/

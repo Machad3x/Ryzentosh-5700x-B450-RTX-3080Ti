@@ -48,8 +48,12 @@ Driver de GPU: **HighDelay/nvidia-macos-driver-nvk** (fork do nullmoth, v3.0.2-n
 
 ## Kexts (EFI/OC/Kexts)
 
-- Lilu.kext
+- Lilu.kext (base, deve ser a primeira)
 - AMFIPass.kext
+- AirportMtkWlan.kext (Wi-Fi MT7921/MT7922 — Tahoe build, MinKernel 25.0.0)
+- SimpleMtkBtFw.kext (BT firmware loader)
+- SimpleMtkBtPatcher.kext (BT patcher)
+- BlueToolFixup.kext (BT fixup, do BrcmPatchRAM)
 - AppleALC.kext
 - AppleMCEReporterDisabler.kext
 - RealtekRTL8111.kext
@@ -114,6 +118,39 @@ Opcionais do HighDelay fork (default No, perguntados no install.sh):
 ### 6. Mapear USB (recomendado)
 
 Use USBToolBox pra mapear portas, gere UTBMap.kext, coloque em EFI/OC/Kexts, remova UTBDefault.kext, rode OC Snapshot (Ctrl+R no ProperTree) e salve.
+
+## Wi-Fi e Bluetooth (Fenvi AX1800 PCIe — MediaTek MT7921)
+
+Seu hardware report mostrou MediaTek Wi-Fi 6/6E (14C3-7961 = MT7921). Como você tem uma **Fenvi FV-AX1800 PCIe**, o Wi-Fi e BT podem funcionar no macOS (Sequoia e Tahoe) com kexts da comunidade.
+
+### Kexts (já adicionadas à EFI)
+
+- `AirportMtkWlan.kext` — Wi-Fi nativo (menu AirPort, Keychain auto-join, VHT80). Build Tahoe (MinKernel 25.0.0 / MaxKernel 25.99.99).
+- `SimpleMtkBtFw.kext` + `SimpleMtkBtPatcher.kext` — firmware + patcher BT.
+- `BlueToolFixup.kext` — fixup BT (do BrcmPatchRAM).
+
+### Config.plist (já aplicado)
+
+- `Kernel -> Quirks -> DisableIoMapper = true` (obrigatório — o driver programa DMA rings diretos, não suporta AppleVTD IOMMU).
+- Ordem de carga: Lilu → AMFIPass → AirportMtkWlan → SimpleMtkBtFw → SimpleMtkBtPatcher → BlueToolFixup → ...
+
+### Passos obrigatórios (hardware)
+
+1. **Cabo USB interno**: conecte o cabo USB de 9 pinos da Fenvi a um header USB 2.0 livre na placa-mãe. Sem isso, o Bluetooth não aparece.
+2. **Mapeamento USB**: no UTBMap/USBMap, defina a porta USB da placa como **Internal (255)**. Caso contrário, o macOS trata o BT como dispositivo externo e falha ao acordar do repouso.
+
+### Download dos kexts (se precisar atualizar)
+
+- Wi-Fi: https://github.com/Arxusion/AirportMtkWlan/releases (Tahoe: `AirportMtkWlan-Tahoe-v2.1.6-RELEASE.zip`)
+- Instalador gráfico: `AirportMtkWlan-Installer-v2.1.6.zip` (configura tudo automaticamente, incluindo DisableIoMapper)
+- BT: `SimpleMtkBtFw-0.1.0.zip` (https://github.com/mnnobre/SimpleMtkBtFw/releases) ou companion do Arxusion
+- BlueToolFixup: https://github.com/acidanthera/BrcmPatchRAM/releases (BrcmPatchRAM-2.7.2-RELEASE.zip)
+
+### Limitações
+
+- USB MediaTek (MT7921AU) **não** é suportado — apenas PCIe MT7921/MT7922.
+- MT7902/MT7902LEN **não** é suportado.
+- Verifique `MinKernel`/`MaxKernel` corretos pro seu macOS (Sequoia: 24.2.0–24.99.99; Tahoe: 25.0.0–25.99.99).
 
 ## Avisos
 
