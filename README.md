@@ -61,7 +61,7 @@ Driver de GPU: **HighDelay/nvidia-macos-driver-nvk** (fork do nullmoth, v3.0.2-n
 - RealtekRTL8111.kext
 - RestrictEvents.kext
 - SimpleHDA.kext (Tahoe removeu AppleHDA)
-- USBToolBox.kext + UTBDefault.kext (trocar por UTBMap.kext após mapear USB)
+- USBToolBox.kext + UTBMap.kext (mapeamento USB personalizado — já feito)
 - VirtualSMC.kext
 
 ## Instalação
