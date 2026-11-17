@@ -13,7 +13,16 @@ Guia pra mapear as portas USB da sua placa-mãe (GIGABYTE B450 AORUS ELITE) e ge
 - **USBToolBox** (Windows): `C:\Users\machadex\Hackintosh\usbtoolbox\dist\Windows.exe`
 - Ou baixe em: https://github.com/USBToolBox/tool/releases
 
-## Passos
+## Status: ✅ Mapeamento concluído
+
+O mapeamento USB foi feito com USBToolBox e o `UTBMap.kext` foi gerado e instalado na EFI. O `UTBDefault.kext` foi removido.
+
+- Controladores mapeados: AMD USB 3.10 (1022-43D5) e AMD USB 3.10 (1022-149C)
+- Portas mapeadas: 8 + 8 = 16 portas
+- Controlador USBip (emulado) ignorado
+- Porta da Fenvi AX1800 definida como Internal (255) pro Bluetooth
+
+## Passos (referência)
 
 ### 1. Preparar
 
