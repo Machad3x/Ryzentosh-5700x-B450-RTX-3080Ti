@@ -1,0 +1,3 @@
+465d4b77a143cd65051f46b2db0b866241a2f706f6d8a0464b67eb31798b5039  nvidia-macos-driver-3.0.2-nvk.tar.gz
+349e0db1d4bad0d7cf0397f68a56d716785ec1b24a7691c5616b409549e8b3bc  wine-nvk-provider-3.0.2-nvk.tar.gz
+35f3dbfb5e551e2277714e34a004e1363ead8e355f230b13825ffbedf875a478  nvidia-arm-scripts-3.0.2.tar.gz
