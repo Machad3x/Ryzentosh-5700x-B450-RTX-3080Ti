@@ -154,6 +154,19 @@ Seu hardware report mostrou MediaTek Wi-Fi 6/6E (14C3-7961 = MT7921). Como você
 - MT7902/MT7902LEN **não** é suportado.
 - Verifique `MinKernel`/`MaxKernel` corretos pro seu macOS (Sequoia: 24.2.0–24.99.99; Tahoe: 25.0.0–25.99.99).
 
+## Documentação
+
+| Arquivo | Descrição |
+|---|---|
+| [README.md](README.md) | Este arquivo — visão geral do setup |
+| [BIOS.md](BIOS.md) | Configurações da BIOS (obrigatório/recomendado/cuidado) |
+| [POS-INSTALACAO.md](POS-INSTALACAO.md) | Como copiar EFI pro disco interno + caminho pro Tahoe |
+| [USB-MAPPING.md](USB-MAPPING.md) | Mapeamento USB (USBToolBox/UTBMap) |
+| [OCLP-GUIDE.md](OCLP-GUIDE.md) | Guia OCLP — atualizar Sequoia → Tahoe 26 |
+| [WIFI-BT-SETUP.md](WIFI-BT-SETUP.md) | Wi-Fi/BT Fenvi AX1800 (MT7921) — setup completo |
+| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Problemas comuns e soluções |
+| [ANALISE-1401-PROBE.md](ANALISE-1401-PROBE.md) | Análise do 1401 Probe (pendrive anterior) |
+
 ## Avisos
 
 - **RTX 3080 Ti (Ampere)** está em "Pending" de validação física. Pode funcionar, pode ter bugs. Reporte issues no repo.
