@@ -25,6 +25,8 @@ Driver de GPU: **HighDelay/nvidia-macos-driver-nvk** (fork do nullmoth, v3.0.2-n
 
 ## BIOS (GIGABYTE B450 AORUS ELITE)
 
+> 📋 Guia completo de settings da BIOS: [BIOS.md](BIOS.md)
+
 - Secure Boot: **Disabled**
 - CSM: **Disabled** (UEFI puro)
 - Above 4G Decoding: **Enabled** (driver exige — card mapeia memória acima de 4GB)
